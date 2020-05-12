@@ -1,0 +1,7 @@
+{
+    "sketch": "MAX6675.ino",
+    "programmer": "AVR ISP",
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328old",
+    "port": "COM4"
+}

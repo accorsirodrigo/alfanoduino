@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\rodrigo.accorsi\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
+                "C:\\Users\\rodrigo.accorsi\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.1\\**",
+                "D:\\Devel\\arduino-1.8.12\\tools\\**",
+                "D:\\Devel\\arduino-1.8.12\\hardware\\arduino\\avr\\**",
+                "D:\\Devel\\arduino-1.8.12\\hardware\\arduino\\avr\\libraries\\Wire\\**"
+            ],
+            "forcedInclude": [
+                "D:\\Devel\\arduino-1.8.12\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

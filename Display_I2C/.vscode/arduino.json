@@ -1,0 +1,7 @@
+{
+    "sketch": "Display_I2C.ino",
+    "programmer": "AVR ISP",
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328old",
+    "port": "COM3"
+}
