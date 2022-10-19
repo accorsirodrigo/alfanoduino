@@ -1,4 +1,5 @@
 #include "CustomLCD.h"
+#include "BigLcd.h"
 
 CustomLCD::CustomLCD(uint8_t lcd_Addr, uint8_t lcd_cols, uint8_t lcd_row)
 {
@@ -12,8 +13,11 @@ void CustomLCD::init()
     lcd = LiquidCrystal_I2C(_Addr, _cols, _rows);
     lcd.init();
     lcd.backlight();
-    
+
     welcomeScreen();
+    delay(1000);
+    loadChars(lcd);
+    initLcdLayout();
 }
 
 void CustomLCD::printDisplay(int x, int y, String txt, int size)
@@ -44,12 +48,41 @@ void CustomLCD::initLcdLayout()
     delay(500);
     String lap = "LAP:";
     String bst = "BST:";
+    String laps = "LAPs:";
+    printDisplay(12, 0, laps, laps.length());
     printDisplay(0, 2, lap, lap.length());
     printDisplay(0, 3, bst, bst.length());
     lcd.backlight();
 }
 
-LiquidCrystal_I2C& CustomLCD::getLcd()
+LiquidCrystal_I2C &CustomLCD::getLcd()
 {
     return lcd;
+}
+
+void CustomLCD::printSpeed(String value)
+{
+    printNumber(lcd, value.toInt());
+}
+void CustomLCD::printGPS(String value)
+{
+    printDisplay(12, 3, "GPS:" + value, 8);
+}
+void CustomLCD::printTime(String value)
+{
+    printDisplay(4, 2, value, 6);
+}
+void CustomLCD::printBestTime(String value)
+{
+    printDisplay(4, 3, value, 6);
+}
+
+void CustomLCD::printLastLap(String value)
+{
+    printDisplay(12, 2, "#" + value, 7);
+}
+
+void CustomLCD::printLaps(String value)
+{
+    printDisplay(17, 0, value, value.length());
 }
