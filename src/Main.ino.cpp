@@ -1,16 +1,7 @@
-/*
-   DuinoFano V1.0
-   Projeto para Arduino Nano/Uno, replicando alguns funcionamentos dos paineis de bordo para Kart.
-   Funcionalidades:
-   Monitoramento de voltas, por meio de um botão (Melhor volta, ultima volta e volta atual);
-   Velocidade (adquirida pelo GPS);
-   Temperatura, pelo modulo MAX6675 e sensor tipo K;
-   Display LCD 20x4;
-
-   Em desenvolvimento:
-   RPM;
-*/
-
+# 1 "C:\\Users\\roelf\\AppData\\Local\\Temp\\tmp5sh0mfjk"
+#include <Arduino.h>
+# 1 "C:/Users/roelf/OneDrive/Documentos/PlatformIO/Projects/221017-090052-micro/src/Main.ino"
+# 14 "C:/Users/roelf/OneDrive/Documentos/PlatformIO/Projects/221017-090052-micro/src/Main.ino"
 #include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 #include <Wire.h>
@@ -35,7 +26,13 @@ TinyGPSPlus gps;
 SoftwareSerial gpsSerial(RXPin, TXPin);
 
 Track npt(-28.807711, -51.593818, 15.0);
-
+void setup();
+void loop();
+void displayInfo();
+void lapInterupt();
+void lapTimmer();
+void gpsTurnControll();
+#line 39 "C:/Users/roelf/OneDrive/Documentos/PlatformIO/Projects/221017-090052-micro/src/Main.ino"
 void setup()
 {
   Serial.begin(9600);
@@ -70,7 +67,7 @@ void displayInfo()
 {
   lapTimmer();
   gpsTurnControll();
-  // print speed
+
   Serial.print(F("Speed: "));
   String gpsSpeed = "0";
   if (gps.speed.isValid() && gps.speed.kmph() >= 1)
@@ -80,7 +77,7 @@ void displayInfo()
   Serial.print(gpsSpeed);
   lcd.printSpeed(gpsSpeed);
 
-  // print sattelites
+
   Serial.print(F(" |Sat: "));
   String sat = INVALID;
   if (gps.satellites.isValid())

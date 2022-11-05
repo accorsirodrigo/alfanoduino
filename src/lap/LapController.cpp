@@ -60,7 +60,7 @@ double LapController::getCurrentLapTime()
     }
 
     double currentTurnTime = (millis() - currentMillis) / 1000.0;
-    if (currentTurnTime > 240000)
+    if (currentTurnTime > 480000)
         resetDisplay();
 
     return currentTurnTime;
